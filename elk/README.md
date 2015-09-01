@@ -175,11 +175,13 @@ Finally, we open up our browser and point to the elk IP and port 5601. The confi
 
 # Developer Client Side
 
-(TODO)
+Pretty simple if you are using syslog: Just add the following lines to your each `docker-compose` container you want to monitorize.
 
-# Server Client (the one that will produce the logs)
+    log_driver: syslog
+    log_opt:
+        syslog-address: "tcp://X.Y.Z.8:5000"
+        syslog-tag: "my_container"
 
-(TODO)
 
 References
 ==========
