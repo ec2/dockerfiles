@@ -116,7 +116,7 @@ This image is based on [the one from spujadas](http://spujadas.github.io/elk-doc
 
 OK. To start our container, we will use Docker compose
 
-    docker-compose run
+    docker-compose up
 
 ## Checking the Applications
 
