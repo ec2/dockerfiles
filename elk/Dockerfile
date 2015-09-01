@@ -87,5 +87,4 @@ EXPOSE 5601 9200 9300 5000
 
 # This one is left in order to keep log data across container restarts
 VOLUME /var/lib/elasticsearch
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["/usr/local/bin/entrypoint.sh"]
