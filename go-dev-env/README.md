@@ -2,7 +2,7 @@
 
 ### Motivation
 
-Containerize the tools * I need to develop in `golang`, including `vim` and BDD support.
+Containerize the tools I need to develop in `golang`, including `vim` and BDD support.
 
 ### Image
 
