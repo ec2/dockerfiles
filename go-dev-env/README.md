@@ -31,6 +31,7 @@ Say you have the package `happy_donald_duck/awesome`, which is represented in `g
 Step into the directory you downloaded it and enter
 
     docker \
+        run \
         -ti \
         --rm \
         -v $(pwd):/go/src/github.com/happy_donald_duck/awesome \
