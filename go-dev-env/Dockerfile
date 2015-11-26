@@ -77,6 +77,23 @@ RUN git submodule init && \
 
 ###############################################################################
 #
+# Bash
+#
+# .bashrc
+#  git-completion
+#
+###############################################################################
+
+
+ADD bashrc /root/.bashrc
+RUN curl \
+    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
+    -o \
+    /root/.git-completion.bash
+
+
+###############################################################################
+#
 # We are set
 #
 ###############################################################################
