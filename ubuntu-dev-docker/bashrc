@@ -61,5 +61,5 @@ fi
 ### Add git credentials
 git config --global user.email "chpdg42@gmail.com"
 git config --global user.name "Herman Junge"
-git config credential.helper store
+git config --global credential.helper store
 
