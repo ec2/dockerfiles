@@ -10,4 +10,6 @@ Have you tried to work with containers, heavy repos and sh*t having a _sad_ 4 Mb
 
 ### Usage
 
-	docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/root/look-mom-no-hands hermanjunge/ubuntu-dev-docker bash
+	docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/root/dev hermanjunge/ubuntu-dev-docker bash
+
+Will give you your dev env with coreOS' docker socket.
