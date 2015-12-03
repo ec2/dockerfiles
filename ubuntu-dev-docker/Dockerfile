@@ -15,10 +15,10 @@ MAINTAINER Herman Junge "chpdg42@gmail.com"
 
 RUN apt-get update && \
     apt-get install -y \
-	apt-transport-https \	
-    	build-essential \
+        apt-transport-https \
+        build-essential \
         curl \
-	locales \
+        locales \
         vim-gnome
 
 
@@ -26,7 +26,7 @@ RUN apt-get update && \
 #
 # Setup locales
 #
-# Ubuntu infamous problem
+# Ubuntu infamous problem, at least a recurrent one in SCL (Hablas español?)
 #
 ###############################################################################
 
@@ -34,6 +34,7 @@ RUN apt-get update && \
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen en_US.utf8 && \
     /usr/sbin/update-locale LANG=en_US.UTF-8
+
 
 ###############################################################################
 #
@@ -53,6 +54,21 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
 RUN curl -L https://github.com/docker/compose/releases/download/1.5.1/docker-compose-`uname -s`-`uname -m` > \
     /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
+
+
+###############################################################################
+#
+# K8s (Kubernetes)
+#
+# kubectl 1.12
+#
+###############################################################################
+
+
+WORKDIR /tmp
+RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin/linux/amd64/kubectl && \
+    chmod +x kubectl &&\
+    mv kubectl /usr/local/bin/kubectl
 
 
 ###############################################################################
@@ -96,4 +112,5 @@ RUN curl \
 
 
 WORKDIR /root
- 
+
+
