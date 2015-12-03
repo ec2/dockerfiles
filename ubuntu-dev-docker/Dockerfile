@@ -80,10 +80,9 @@ RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin
 #
 ###############################################################################
 
-
-RUN git clone https://github.com/hermanjunge/vimfiles.git /root/.vim
 WORKDIR /root/.vim
-RUN git submodule init && \
+RUN git clone https://github.com/hermanjunge/vimfiles.git /root/.vim && \
+    git submodule init && \
     git submodule update && \
     ln -s /root/.vim/vimrc .vimrc
 
