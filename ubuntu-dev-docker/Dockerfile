@@ -20,6 +20,7 @@ RUN apt-get update && \
         build-essential \
         curl \
         locales \
+        unzip \
         vim-gnome
 
 
@@ -72,6 +73,20 @@ RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin
     mv kubectl /usr/local/bin/kubectl
 
 
+################################################################################
+#
+# Terraform
+#
+###############################################################################
+
+
+WORKDIR /tmp
+RUN curl -O https://releases.hashicorp.com/terraform/0.6.8/terraform_0.6.8_linux_amd64.zip && \
+    unzip terraform_0.6.8_linux_amd64.zip && \
+    rm terraform_0.6.8_linux_amd64.zip && \
+    mv terraform* /usr/local/bin/.
+
+
 ###############################################################################
 #
 # VIM
@@ -111,6 +126,5 @@ RUN curl \
 ###############################################################################
 
 
-WORKDIR /root
-
+WORKDIR /home/core
 
