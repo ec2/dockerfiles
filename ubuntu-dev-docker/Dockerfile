@@ -73,6 +73,17 @@ RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin
     mv kubectl /usr/local/bin/kubectl
 
 
+###############################################################################
+#
+# HELM
+#
+###############################################################################
+
+
+RUN curl -s https://get.helm.sh | bash && \
+    mv helm /usr/local/bin/helm
+
+
 ################################################################################
 #
 # Terraform
