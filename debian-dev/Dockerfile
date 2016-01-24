@@ -42,7 +42,7 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
 #
 # Docker
 #
-# docker + docker-compose
+# docker (latest in apt) + docker-compose 1.5.2
 #
 ###############################################################################
 
@@ -53,7 +53,7 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
         /etc/apt/sources.list.d/docker.list && \
     apt-get update && \
     apt-get install -y docker-engine
-RUN curl -L https://github.com/docker/compose/releases/download/1.5.1/docker-compose-`uname -s`-`uname -m` > \
+RUN curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > \
     /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
 
@@ -62,20 +62,20 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.5.1/docker-com
 #
 # K8s (Kubernetes)
 #
-# kubectl 1.12
+# kubectl 1.1.4
 #
 ###############################################################################
 
 
 WORKDIR /tmp
-RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin/linux/amd64/kubectl && \
+RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.4/bin/linux/amd64/kubectl && \
     chmod +x kubectl &&\
     mv kubectl /usr/local/bin/kubectl
 
 
 ###############################################################################
 #
-# HELM
+# HELM (latest)
 #
 ###############################################################################
 
@@ -86,7 +86,7 @@ RUN curl -s https://get.helm.sh | bash && \
 
 ################################################################################
 #
-# Terraform
+# Terraform (0.6.8)
 #
 ###############################################################################
 
