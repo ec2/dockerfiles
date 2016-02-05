@@ -19,23 +19,9 @@ RUN apt-get update && \
         apt-transport-https \
         build-essential \
         curl \
-        locales \
         unzip \
-        vim-gnome
-
-
-################################################################################
-#
-# Setup locales
-#
-# Ubuntu infamous problem, at least a recurrent one in SCL (Hablas español?)
-#
-###############################################################################
-
-
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
-    locale-gen en_US.utf8 && \
-    /usr/sbin/update-locale LANG=en_US.UTF-8
+        vim-gnome && \
+    apt-get upgrade
 
 
 ###############################################################################
