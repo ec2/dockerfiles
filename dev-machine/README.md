@@ -14,7 +14,6 @@ Development container to be used in the cloud.
 
 ```
 docker run -ti --rm \
-	-e DEV_ENV_HOST_DIR=/home/core/dev/router \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v $(pwd):/home/core \
 	--net=host \
