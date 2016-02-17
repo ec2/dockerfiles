@@ -86,18 +86,33 @@ RUN curl -O https://releases.hashicorp.com/terraform/0.6.8/terraform_0.6.8_linux
 
 ###############################################################################
 #
+# gofmt + goimports (golang 1.5.3)
+#
+###############################################################################
+
+
+RUN curl -O https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz && \
+    tar -xvf go1.5.3.linux-amd64.tar.gz && \
+    GOROOT=/tmp/go GOPATH=/tmp/gopath /tmp/go/bin/go get golang.org/x/tools/cmd/goimports && \
+    mv /tmp/go/bin/gofmt /usr/local/bin/gofmt && \
+    mv /tmp/gopath/bin/goimports /usr/local/bin/goimports && \
+    rm -rf /tmp/*
+
+
+###############################################################################
+#
 # VIM
 #
 # A fork from scrooloose + vim-go + some configs
 #
 ###############################################################################
 
+
 WORKDIR /root/.vim
 RUN git clone https://github.com/hermanjunge/vimfiles.git /root/.vim && \
     git submodule init && \
     git submodule update && \
     ln -s /root/.vim/vimrc .vimrc
-
 
 ###############################################################################
 #
