@@ -18,6 +18,6 @@ docker run -ti --rm \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v $(pwd):/home/core \
 	--net=host \
-	hermanjunge/debian-dev bash
+	hermanjunge/dev-machine bash
 ```
 
