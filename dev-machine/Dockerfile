@@ -1,7 +1,6 @@
 FROM ubuntu
 MAINTAINER Herman Junge "chpdg42@gmail.com"
 
-
 ###############################################################################
 #
 # APT packages
@@ -13,100 +12,69 @@ MAINTAINER Herman Junge "chpdg42@gmail.com"
 #
 ###############################################################################
 
-
 RUN apt-get update && \
     apt-get install -y \
-        apt-transport-https \
         build-essential \
         curl \
+        git \
         unzip \
         vim-gnome && \
     apt-get upgrade -y
-
 
 ###############################################################################
 #
 # Docker
 #
-# docker 1.9.1 + docker-compose 1.6.0
+# docker 1.10.3
 #
 ###############################################################################
 
-
-RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
-        --recv-keys 58118E89F3A912897C070ADBF76221572C52609D && \
-    echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> \
-        /etc/apt/sources.list.d/docker.list && \
-    apt-get update && \
-    apt-get install -y docker-engine
-RUN curl -L https://github.com/docker/compose/releases/download/1.6.0/docker-compose-`uname -s`-`uname -m` > \
-    /usr/local/bin/docker-compose && \
-    chmod +x /usr/local/bin/docker-compose
-
+RUN curl -o /usr/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.10.3 && \
+    chmod +x /usr/bin/docker
 
 ###############################################################################
 #
 # K8s (Kubernetes)
 #
-# kubectl 1.1.4
+# kubectl 1.2.2
 #
 ###############################################################################
 
-
-WORKDIR /tmp
-RUN curl -O https://storage.googleapis.com/kubernetes-release/release/v1.1.4/bin/linux/amd64/kubectl && \
-    chmod +x kubectl &&\
-    mv kubectl /usr/local/bin/kubectl
-
-
-###############################################################################
-#
-# HELM (latest)
-#
-###############################################################################
-
-
-RUN curl -s https://get.helm.sh | bash && \
-    mv helm /usr/local/bin/helm
-
+RUN curl -o /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl && \
+    chmod +x /usr/bin/kubectl
 
 ################################################################################
 #
-# Terraform (0.6.8)
+# Terraform (0.6.14)
 #
 ###############################################################################
-
 
 WORKDIR /tmp
-RUN curl -O https://releases.hashicorp.com/terraform/0.6.8/terraform_0.6.8_linux_amd64.zip && \
-    unzip terraform_0.6.8_linux_amd64.zip && \
-    rm terraform_0.6.8_linux_amd64.zip && \
-    mv terraform* /usr/local/bin/.
-
+RUN curl -O https://releases.hashicorp.com/terraform/0.6.14/terraform_0.6.14_linux_amd64.zip && \
+    unzip terraform_0.6.14_linux_amd64.zip && \
+    rm terraform_0.6.14_linux_amd64.zip && \
+    mv terraform* /usr/bin/.
 
 ###############################################################################
 #
-# gofmt + goimports (golang 1.5.3)
+# gofmt + goimports (golang 1.6)
+# Please note that I'm not installing go, but tools to help editing go files.
 #
 ###############################################################################
 
-
-RUN curl -O https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz && \
-    tar -xvf go1.5.3.linux-amd64.tar.gz && \
+RUN curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz && \
+    tar -xvf go1.6.linux-amd64.tar.gz && \
     GOROOT=/tmp/go GOPATH=/tmp/gopath /tmp/go/bin/go get golang.org/x/tools/cmd/goimports && \
     mv /tmp/go/bin/gofmt /usr/local/bin/gofmt && \
     mv /tmp/gopath/bin/goimports /usr/local/bin/goimports && \
     rm -rf /tmp/*
 
-
 ###############################################################################
 #
 # VIM
-#
 # A fork from scrooloose + vim-go + some configs
 #
 ###############################################################################
-
 
 WORKDIR /root/.vim
 RUN git clone https://github.com/hermanjunge/vimfiles.git /root/.vim && \
@@ -116,13 +84,11 @@ RUN git clone https://github.com/hermanjunge/vimfiles.git /root/.vim && \
 
 ###############################################################################
 #
-# Bash
-#
+# Bash Stuff
 # .bashrc
 #  git-completion
 #
 ###############################################################################
-
 
 ADD bashrc /root/.bashrc
 RUN curl \
@@ -130,13 +96,10 @@ RUN curl \
     -o \
     /root/.git-completion.bash
 
-
 ###############################################################################
 #
 # We are set
 #
 ###############################################################################
 
-
 WORKDIR /home/core
-
