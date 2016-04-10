@@ -9,10 +9,45 @@ A development framework for ethereum
 
 ## How does it work
 
-(TODO)
-(basic command)
-(the working directory)
-(using an alias?)
+### Install docker
+
+Duh...
+
+### Get the image
+
+    docker pull hermanjunge/truffle
+
+Will get you the latest one. Now, for a specific version of truffle, say `1.0.1`, do
+
+    docker pull hermanjunge/truffle:1.0.1
+
+### Basic operations
+
+OK. you have your directory where you are going to build your contract. We will call it
+your `working directory` from now on. Let's run the following to init it
+
+    docker run -ti --rm -v $(pwd):/root/my-contract -w /root/my-contract hermanjunge/truffle truffle init
+
+#### Whoa whoa whoa! What is this long line??!!
+
+Yes. I'm aware of that. We are doing several things:
+
+* Running a container based on the image `hermanjunge/truffle`.
+* Mounting my contract directory inside this container.
+* Setting the mounted directory as the working directory in the container.
+* And, running truffle, with the followed by `init`.
+
+As every command follows the same pattern, we will just setup an alias!
+
+### Setting an alias
+
+    alias truffle="docker run -ti --rm -v $PATH_TO_MY_CONTRACT_DIR:/root/my-contract -w /root/my-contract hermanjunge/truffle truffle"
+
+What problem? No problem! From now on you just do
+
+   truffle init
+
+Getting you the same results as having the program installed in your machine (and _node_, and _npm_, etc...)
 
 ## Advanced usage
 
