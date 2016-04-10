@@ -10,11 +10,27 @@ A development framework for ethereum
 ## How does it work
 
 (TODO)
+(basic command)
+(the working directory)
+(using an alias?)
 
-## Advanced use
+## Advanced usage
 
 (TODO)
+(mount your copy of truffle)
+(use it with the container of testrpc)
 
 ## I want to build my own truffle image
 
-(TODO)
+### From the current npm package
+
+Sure. You just need to have the `Dockerfile` in the directory you are and
+
+    docker build -t <your-username>/truffle .
+
+Where `<your-username>/truffle` is the name you are giving to your image.
+
+### Known caveat
+
+Tried to execute `npm install` in a cheap droplet of 512MB RAM. Didn't work,
+killing the process randomly. The solution was using a machine with 2048MB RAM.
