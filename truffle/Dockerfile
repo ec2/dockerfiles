@@ -10,7 +10,7 @@ MAINTAINER Herman Junge "chpdg42@gmail.com"
 # * git is needed during the process of installing truffle.
 # * After truffle is installed, we get rid of a number of directories.
 # * And we remove git and the programs we installed as its dependencies.
-# * The result? Just one moderate layer over node slim.
+# * The result? Just one moderate layer of files over node slim.
 #
 ################################################################################
 
@@ -18,3 +18,16 @@ RUN apt-get update -y && apt-get install -y git \
     && npm install -g truffle@1.0.0 \
     && rm -rf /tmp/* /root/.npm/* /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove git
+
+################################################################################
+#
+# We need to setup the workspace: The idea is mounting your current
+# directory here. Also, the entrypoint scripts will do all their magic
+# over this directory, if needed.
+#
+################################################################################
+
+WORKDIR "/workspace"
+
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
