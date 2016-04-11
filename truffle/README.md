@@ -57,7 +57,7 @@ Getting you the same results as having the program installed in your machine (an
 
 ### From the current npm package
 
-Sure. You just need to have the `Dockerfile` in the directory you are and
+Sure. Just stand in this very directory and execute
 
     docker build -t <your-username>/truffle .
 
