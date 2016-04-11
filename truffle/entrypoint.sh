@@ -2,9 +2,11 @@
 
 # Some truffle commands may require a special treatment
 if [ $1 = "truffle" ]; then
-	if [ $2 = "init" ]; then
-		truffle init
-		# Let's give ownership to whoeveer executed this one.
+	if [ $2 = "init" -o $2 = "compile" ]; then
+		# Execute the command...
+		$@
+		# ... and, give ownership of the files in workspace
+		# to whoever executed this one.
 		# (Provided they gave us the right environment variables).
 		if [ -n "$USER_ID" ] && [ -n "$GROUP_ID" ]; then
 			chown -R $USER_ID:$GROUP_ID /workspace/.

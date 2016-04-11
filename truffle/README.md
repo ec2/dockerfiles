@@ -7,15 +7,38 @@ A development framework for ethereum
 * Just download one thing: This image; And run it with docker whenever needed.
 * Out of the box, ready to use. Do not worry about _node js_ version and _npm_.
 
-## Get the image
+## Requirements
+
+* Docker `1.10+`. Haven't tried in an older version. Please report.
+
+## Quick Start
+
+* Set an alias for your command `truffle`.
+
+    alias truffle="docker run \
+        -ti \
+        --rm \
+        -e USER_ID=`id -u` \
+        -e GROUP_ID=`id -g` \
+        -v $(pwd):/workspace \
+        hermanjunge/truffle \
+        truffle"
+
+* Run your command (ex: `init`)
+
+    truffle init
+
+And that's all! Read below for learn more.
+
+## Basic Usage
+
+### Get the image
 
     docker pull hermanjunge/truffle
 
 Will get you the latest one. Now, for a specific version of truffle, say `1.0.0`, do
 
     docker pull hermanjunge/truffle:1.0.0
-
-## Basic Usage
 
 ### Setting an alias
 
