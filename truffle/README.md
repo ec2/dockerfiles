@@ -15,14 +15,16 @@ A development framework for ethereum
 
 * Set an alias for your command `truffle`.
 
-    alias truffle="docker run \
-        -ti \
-        --rm \
-        -e USER_ID=`id -u` \
-        -e GROUP_ID=`id -g` \
-        -v $(pwd):/workspace \
-        hermanjunge/truffle \
-        truffle"
+```
+alias truffle="docker run \
+    -ti \
+    --rm \
+    -e USER_ID=`id -u` \
+    -e GROUP_ID=`id -g` \
+    -v $(pwd):/workspace \
+    hermanjunge/truffle \
+    truffle"
+```
 
 * Run your command (ex: `init`)
 
@@ -46,14 +48,16 @@ This is a dirty trick, so we can ignore the long and ugly one-liner needed
 
 Step in the directory we are going to use to develop our contract, and execute
 
-    alias truffle="docker run \
-        -ti \
-        --rm \
-        -e USER_ID=`id -u` \
-        -e GROUP_ID=`id -g` \
-        -v $(pwd):/workspace \
-        hermanjunge/truffle \
-        truffle"
+```
+alias truffle="docker run \
+    -ti \
+    --rm \
+    -e USER_ID=`id -u` \
+    -e GROUP_ID=`id -g` \
+    -v $(pwd):/workspace \
+    hermanjunge/truffle \
+    truffle"
+```
 
 ### Invoke truffle
 
