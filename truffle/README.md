@@ -31,7 +31,7 @@ truffle"
 ```
 truffle init
 ```
-And that's all! Read below for learn more.
+And that's all! Read below to learn more about this image.
 
 ## Basic Usage
 
