@@ -36,7 +36,7 @@ Step in the directory we are going to use to develop our contract, and execute
 
 Now we can invoke truffle, as we were using the real thing
 
-   truffle init
+    truffle init
 
 Getting you the same results as having the program installed in your machine (and _node_, and _npm_, etc...)
 
