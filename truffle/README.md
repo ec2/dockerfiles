@@ -43,7 +43,7 @@ Getting you the same results as having the program installed in your machine (an
 ### Explanation
 
 * `docker run -ti --rm` will make an interactive (i.e. with console) container which will delete itself on exit.
-* ``-e USER_ID=`id -u``` will set up as an env variable your user id. So we can `chown` the files on `truffle init`.
+* ``-e USER_ID=`id -u`` will set up as an env variable your user id. So we can `chown` the files on `truffle init`.
 * ``-e GROUP_ID=`id -g``` same as above, but with group id.
 * `-v $(pwd):/workspace` will mount your contract directory into the container. `/workspace` is the directory inside.
 
