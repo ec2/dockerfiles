@@ -28,8 +28,9 @@ truffle"
 
 * Run your command (ex: `init`)
 
-    truffle init
-
+```
+truffle init
+```
 And that's all! Read below for learn more.
 
 ## Basic Usage
