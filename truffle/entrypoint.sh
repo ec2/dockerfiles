@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Some truffle commands may require a special treatment
 if [ $1 = "truffle" ]; then
-	if [ $2 = "init" -o $2 = "compile" ]; then
 		# Execute the command...
 		$@
 		# ... and, give ownership of the files in workspace
@@ -13,9 +11,9 @@ if [ $1 = "truffle" ]; then
 		fi
 
 		exit
-	fi
 fi
 
 # Default case:
 # Just run the given command
+# (i.e. The user wants to `bash`)
 exec "$@"
