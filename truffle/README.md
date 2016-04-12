@@ -34,7 +34,7 @@ truffle init
 ```
 And that's all! Read below to learn more about this image.
 
-## Basic Usage
+## Usage
 
 ### Get the image
 
