@@ -21,6 +21,7 @@ alias truffle="docker run \
 --rm \
 -e USER_ID=`id -u` \
 -e GROUP_ID=`id -g` \
+-p 8080:8080 \
 -v $(pwd):/workspace \
 hermanjunge/truffle \
 truffle"
@@ -55,6 +56,7 @@ alias truffle="docker run \
 --rm \
 -e USER_ID=`id -u` \
 -e GROUP_ID=`id -g` \
+-p 8080:8080 \
 -v $(pwd):/workspace \
 hermanjunge/truffle \
 truffle"
@@ -73,6 +75,7 @@ Getting you the same results as having the program installed in your machine (an
 * `docker run -ti --rm` will make an interactive (i.e. with console) container which will delete itself on exit.
 * ``-e USER_ID=`id -u`` will set up as an env variable your user id. So we can `chown` the files on `truffle init`.
 * ``-e GROUP_ID=`id -g``` same as above, but with group id.
+* `-p 8080:8080` tells docker to listen and forward incoming requests to the port `8080` into the container.
 * `-v $(pwd):/workspace` will mount your contract directory into the container. `/workspace` is the directory inside.
 
 ## I want to build my own truffle image
