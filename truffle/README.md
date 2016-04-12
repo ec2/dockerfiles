@@ -75,12 +75,6 @@ Getting you the same results as having the program installed in your machine (an
 * ``-e GROUP_ID=`id -g``` same as above, but with group id.
 * `-v $(pwd):/workspace` will mount your contract directory into the container. `/workspace` is the directory inside.
 
-## Advanced usage
-
-* (TODO)
-* (mount your copy of truffle)
-* (use it with the container of testrpc)
-
 ## I want to build my own truffle image
 
 ### From the current npm package
