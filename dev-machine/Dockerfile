@@ -57,6 +57,16 @@ RUN curl -O https://releases.hashicorp.com/terraform/0.6.14/terraform_0.6.14_lin
 
 ###############################################################################
 #
+# Node 5.10.1
+#
+###############################################################################
+
+RUN curl -SLO "https://nodejs.org/dist/v5.10.1/node-v5.10.1-linux-x64.tar.xz" \
+  && tar -xJf "node-v5.10.1-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+  && rm "node-v5.10.1-linux-x64.tar.xz"
+
+###############################################################################
+#
 # gofmt + goimports (golang 1.6)
 # Please note that I'm not installing go, but tools to help editing go files.
 #

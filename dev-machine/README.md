@@ -14,6 +14,7 @@ Development container to be used in the cloud.
 * Docker 1.10.3 (Just the client, didn't bother to setup the server)
 * Kubernetes Client (`kubectl`) 1.2.2.
 * Terraform 0.6.14
+* Node.js 5.10.1
 * Golang 1.6 tools: gofmt and goimports
 * VIM, my flavour, which was shameless copied from scrooloose's setup.
 * VIM go, so I can do golang format magic.
