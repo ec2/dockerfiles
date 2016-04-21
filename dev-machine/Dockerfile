@@ -14,10 +14,9 @@ MAINTAINER Herman Junge "chpdg42@gmail.com"
 
 RUN apt-get update && \
     apt-get install -y \
-        build-essential \
         curl \
         git \
-        unzip \
+        make \
         vim-gnome && \
     apt-get upgrade -y
 
@@ -43,28 +42,6 @@ RUN curl -o /usr/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.
 RUN curl -o /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl && \
     chmod +x /usr/bin/kubectl
 
-################################################################################
-#
-# Terraform (0.6.14)
-#
-###############################################################################
-
-WORKDIR /tmp
-RUN curl -O https://releases.hashicorp.com/terraform/0.6.14/terraform_0.6.14_linux_amd64.zip && \
-    unzip terraform_0.6.14_linux_amd64.zip && \
-    rm terraform_0.6.14_linux_amd64.zip && \
-    mv terraform* /usr/bin/.
-
-###############################################################################
-#
-# Node 5.10.1
-#
-###############################################################################
-
-RUN curl -SLO "https://nodejs.org/dist/v5.10.1/node-v5.10.1-linux-x64.tar.xz" \
-  && tar -xJf "node-v5.10.1-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-  && rm "node-v5.10.1-linux-x64.tar.xz"
-
 ###############################################################################
 #
 # gofmt + goimports (golang 1.6)
@@ -72,6 +49,7 @@ RUN curl -SLO "https://nodejs.org/dist/v5.10.1/node-v5.10.1-linux-x64.tar.xz" \
 #
 ###############################################################################
 
+WORKDIR /tmp
 RUN curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz && \
     tar -xvf go1.6.linux-amd64.tar.gz && \
     GOROOT=/tmp/go GOPATH=/tmp/gopath /tmp/go/bin/go get golang.org/x/tools/cmd/goimports && \
