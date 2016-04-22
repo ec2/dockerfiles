@@ -7,7 +7,7 @@ Development container to be used in the cloud.
 * I need to have a quick-to-get dev machine in the cloud.
 * If you create a coreOS machine, you already have docker.
 * So, you just setup a coreOS machine in the cloud, and run this image.
-* That's all, now you can develop with a cheap laptop on a ~shi..~ speed-challenging internet.
+* That's all, now you can develop with a cheap laptop on a ~~shi..~~ speed-challenging internet.
 
 ### What is in this image?
 
