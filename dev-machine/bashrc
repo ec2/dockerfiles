@@ -39,7 +39,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-# enable color support of ls and also add handy aliases
+# Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -57,14 +57,18 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LESSCHARSET=UTF-8
 
-### Git goodie
-### curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+# Git goodie
+## curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
 
-### Add git credentials
+# Add git credentials
 git config --global user.email "chpdg42@gmail.com"
 git config --global user.name "Herman Junge"
 git config --global credential.helper store
 git config --global push.default simple
+
+# I just need this alias
+alias k='kubectl'
+alias ks='kubectl --namespace=kube-system'
