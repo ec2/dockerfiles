@@ -72,3 +72,4 @@ git config --global push.default simple
 # I just need this alias
 alias k='kubectl'
 alias ks='kubectl --namespace=kube-system'
+alias jsontool='python -mjson.tool'
