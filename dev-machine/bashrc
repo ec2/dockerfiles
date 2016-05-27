@@ -69,7 +69,7 @@ git config --global user.name "Herman Junge"
 git config --global credential.helper store
 git config --global push.default simple
 
-# I just need this alias
+# I just need these aliases
 alias k='kubectl'
 alias ks='kubectl --namespace=kube-system'
 alias jsontool='python -mjson.tool'
