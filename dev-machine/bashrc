@@ -73,3 +73,4 @@ git config --global push.default simple
 alias k='kubectl'
 alias ks='kubectl --namespace=kube-system'
 alias jsontool='python -mjson.tool'
+alias azure='docker run --rm --name azure-cli -ti -v /home/core/_stuff/azure:/root/.azure -v $PWD:$PWD -w $PWD microsoft/azure-cli azure'
