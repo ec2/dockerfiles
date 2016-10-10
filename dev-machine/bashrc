@@ -71,7 +71,9 @@ git config --global credential.helper store
 git config --global push.default simple
 
 # I just need these aliases
-alias k='kubectl'
-alias ks='kubectl --namespace=kube-system'
 alias jsontool='python -mjson.tool'
-alias azure='docker run --rm --name azure-cli -ti -v /home/core/_stuff/azure:/root/.azure -v $PWD:$PWD -w $PWD microsoft/azure-cli azure'
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin
+export GOROOT=/usr/local/go
+export GOPATH=/home/core/go
