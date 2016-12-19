@@ -24,23 +24,23 @@ RUN apt-get update && \
 #
 # Docker
 #
-# docker 1.10.3
+# docker 1.12.5
 #
 ###############################################################################
 
-RUN curl -o /usr/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.10.3 && \
+RUN curl -o /usr/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.12.5 && \
     chmod +x /usr/bin/docker
 
 ###############################################################################
 #
-# go + gofmt + goimports (golang 1.7.1)
+# go + gofmt + goimports (golang 1.7.4)
 # Please note that I'm not installing go, but tools to help editing go files.
 #
 ###############################################################################
 
 WORKDIR /tmp
-RUN curl -O https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz && \
-    tar -xvf go1.7.1.linux-amd64.tar.gz && \
+RUN curl -O https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz && \
+    tar -xvf go1.7.4.linux-amd64.tar.gz && \
     GOROOT=/tmp/go GOPATH=/tmp/gopath /tmp/go/bin/go get golang.org/x/tools/cmd/goimports && \
     mv /tmp/go /usr/local && \
     mv /tmp/gopath/bin/goimports /usr/local/bin/goimports
