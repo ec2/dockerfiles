@@ -5,9 +5,6 @@ MAINTAINER Herman Junge "chpdg42@gmail.com"
 #
 # APT packages
 #
-# apt-transport-https enables to add the docker repository below
-# build-essential to run makefiles (and maybe compile something)
-# locales is to fix the infamous ubuntu locale problem
 # vim-gnome contains support for python, which is not enabled by default
 #
 ###############################################################################
