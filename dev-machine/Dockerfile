@@ -14,8 +14,11 @@ RUN apt-get update && \
         curl \
         git \
         make \
-        vim-gnome && \
-    apt-get upgrade -y
+	gcc \
+        vim-gnome \
+	locales && \
+    locale-gen en_US.UTF-8 && \
+    apt-get upgrade -y 
 
 ###############################################################################
 #
@@ -36,8 +39,8 @@ RUN curl -o /usr/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.
 ###############################################################################
 
 WORKDIR /tmp
-RUN curl -O https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz && \
-    tar -xvf go1.7.4.linux-amd64.tar.gz && \
+RUN curl -O https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz && \
+    tar -xvf go1.9.linux-amd64.tar.gz && \
     GOROOT=/tmp/go GOPATH=/tmp/gopath /tmp/go/bin/go get golang.org/x/tools/cmd/goimports && \
     mv /tmp/go /usr/local && \
     mv /tmp/gopath/bin/goimports /usr/local/bin/goimports
